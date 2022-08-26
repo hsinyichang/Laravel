@@ -7,10 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-   f1
-   <a href="./test">test</a>
-   <?php
-dd($data['str123']);
-?>
+<?php
+
+class Fruit{
+    public $name;
+    public $color;
+
+    function drop(){
+        echo "$this->name dropdown";
+    }
+}
+
+$appleObj=new Fruit;
+$appleObj->name='apple';
+$appleObj->color='pink';
+$appleObj->drop();
+?>    
 </body>
 </html>
+

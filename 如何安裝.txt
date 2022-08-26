@@ -1,40 +1,44 @@
+php artisan make:controller CarController
+
 1　2022-08-24
-2　選擇version８.x版
-3  瀏覽器搜尋composer 第一個點選  https://getcomposer.org/
+2　Laravel網站 選擇 version８.x版
+3  瀏覽器搜尋composer (https://getcomposer.org/)
 4  選擇Download
 5  Composer-Setup.exe 下載
-6  若要填path  選擇xampp php php.exe
+6  若要填path  選擇xampp/php/php.exe
 
 -------以下可到  https://laravel.com/docs/8.x/installation#installation-via-composer  參考
+
 7  composer create-project laravel/laravel:^8.0 example-app   將這行以git bash 複製貼上安裝在要的資料夾(後面的資料夾名稱可自行更改))
-8  進入到  cd example-app 資料夾
-9  再輸入 php artisan serve
+8  git bash 進入到  cd example-app 資料夾
+9  git bash 再輸入 php artisan serve
 10 會得到一個網址   http://127.0.0.1:8000/
 11 若要退出執行  在git bash 按  ctrl+c
 
-
+**也可使用xampp開啟
 --------------------------
 
 若是下載別人的Laravel專案下來   
-1  要到資料夾git bash  輸入  composer install
-2  將裡面的.env.example 檔 複製一份  再改為.env 檔  前面是一個齒輪的圖案
-3  再在git bash   輸入  php artisan key:generate    產生新的key驗證碼
+1  要到資料夾git bash  輸入  【composer install】  因為.gitignore有些資料夾沒有上傳
+2  將裡面的 .env.example 檔 複製一份  再改為.env 檔  (前面是一個齒輪的圖案)
+3  再在 git bash   輸入 【php artisan key:generate】  產生新的key驗證碼
 
 ----------------------------
 linux 指令
 ls  當前目錄內容
 pwd 當前目錄位置
 cd  前往子目錄
-
+php artisan 會出現它所需的指令
 
 ------------------------------
-public/index.php  可顯示(引入↓頁面)
-resources/views 裡面新增要呈現的頁面
-routes/web.php  是所謂的路由頁面
-↓
-Route::get('/*檔案名可自己取*', function () {●
-    return view('這裡是放檔案名');
-});
+專案操作↓
+  public/index.php  可顯示(引入↓頁面)
+  resources/views 裡面新增要呈現的頁面
+  routes/web.php  是所謂的路由頁面
+  ↓
+  Route::get('/*路徑名可自己取*', function () {●
+      return view('檔案名');
+  });
 
-http://localhost/Laravel/public/**f1**→裡面的是要去的路徑●
+  http://localhost/Laravel/public/**f1**→裡面的是要去的路徑●
 

@@ -2,6 +2,7 @@
 
 // use GuzzleHttp\Psr7\Request;
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -61,8 +62,11 @@ Route::get('/eat/{name}/{num}', function (Request $request,$name,$num) {   //自
     return view('eat',['data'=>$data]);   //將變數傳到前端，要加上面第5行
 });
 
-Route::get('/car', function () {   //自行設定的路徑名稱
-    return view('car');   //階層式  使用點連接
+// Route::get('/car', function () {   //自行設定的路徑名稱
+//     return view('car');   //階層式  使用點連接
+// });
+Route::get('/student', function () {   //自行設定的路徑名稱
+    return view('student');   //階層式  使用點連接
 });
 
 
@@ -77,4 +81,5 @@ Route::prefix('admin')->group(function(){  //群組概念
 
 
 // Route::get('/test1',[Test1Controller::class],'testFun');
-Route::get('/car', [CarController::class], 'index');
+Route::get('/car', [CarController::class, 'index']);
+Route::get('/student', [StudentController::class, 'index']);

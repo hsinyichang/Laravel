@@ -42,3 +42,16 @@ php artisan 會出現它所需的指令
 
   http://localhost/Laravel/public/**f1**→裡面的是要去的路徑●
 
+-------------------------------
+新增一個Controller
+→   php artisan make:controller StudentController       (Student  可換成你要的)
+→   public function index(){                          (在下面輸入   index 可換成自己要的名子)
+        return view('student');
+    }
+→  resources/views/  新增一個student.blade.php   檔案
+→  routes/web.php   上面新增一個  use App\Http\Controllers\StudentController;   啟用
+→  下面再輸入    Route::get('/student', [StudentController::class, 'index']);
+
+
+-------------------------------
+

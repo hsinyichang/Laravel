@@ -53,5 +53,20 @@ php artisan 會出現它所需的指令
 →  下面再輸入    Route::get('/student', [StudentController::class, 'index']);
 
 
--------------------------------
+-----------以上帶入參數的方式--------------------
+ routes/web.php  →   Route::get('/student/{name}', [StudentController::class, 'index']);
+ 到StudentController  輸入↓
+    public function index(Request $request,$name){   //這裡帶入參數
 
+        dd($request);
+        // student/gina?student=gina&age=30  輸入這段  可從request看
+    }
+
+
+---------------resource controller----------
+https://laravel.com/docs/9.x/controllers#resource-controllers
+
+php artisan make:controller PhotoController --resource   建立一個新的controller
+
+(web.php裡輸入↓)
+Route::resource('photos', PhotoController::class);

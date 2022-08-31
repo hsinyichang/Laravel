@@ -12,6 +12,7 @@ class StudentController extends Controller
     }
     public function index(Request $request,$name){   //這裡帶入參數
 
-        return 'student: '.$name;
+        dd($request);
+        // student/gina?student=gina&age=30  輸入這段  可從request看
     }
 }

@@ -6,7 +6,7 @@ use App\Http\Controllers\StudentController;   //新的controller  要啟用它
 use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\BikeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,4 +75,5 @@ Route::prefix('admin')->group(function(){  //群組概念
 
 Route::get('/car', [CarController::class, 'index']);
 Route::get('/student/{name}', [StudentController::class, 'index']); //網址帶參數，到controller的StudentController更改
-Route::get('/student', [StudentController::class, 'hi']);
+Route::get('/student', [StudentController::class, 'hi'])->name('student123');
+Route::resource('bikes', BikeController::class);

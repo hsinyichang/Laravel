@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function index(){
+    public function hi(){
+        
         return view('student');
+    }
+    public function index(Request $request,$name){   //這裡帶入參數
+
+        return 'student: '.$name;
     }
 }

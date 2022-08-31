@@ -2,7 +2,7 @@
 
 // use GuzzleHttp\Psr7\Request;
 
-use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentController;   //新的controller  要啟用它
 use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -35,23 +35,23 @@ Route::get('/hi/{name}', function ($name) {
     return "<h1>hi  ".$name."</h1>";
 });
 Route::get('/hi/{name}/{num}', function ($name,$num) {
-    $str="<h1>hi　".$name."　num=>　".$num."</h1>";
+    $str="<h1>hi　".$name."　num=>　".$num."</h1>";   //這個沒有hi的頁面    可直接呈現內容
     return $str;
 });
 Route::get('/math/{num1}/{num2}', function ($num1,$num2) {  
-    return $num1+$num2;
+    return $num1."+".$num2."=".$num1+$num2;   //這個沒有math的頁面    可直接呈現內容
 });
 Route::get('/f1/{name}/{age}', function (Request $request,$name,$age) {   //自行設定的路徑名稱
     $str= "Hello $name , age=> $age";
     $data=['str123'=> $str,
-            'str456'=> $str];
+            'str456'=> $str.$str];   //f1頁面可選擇要呈現'str123' 或者'str456' 的頁面
     return view('f1',['data'=>$data]);   //將變數傳到前端，要加上面第5行
 });
 Route::get('/oop', function () {   //自行設定的路徑名稱
     return view('oop');   //檔名
 });
 Route::get('/user_user', function () {   //自行設定的路徑名稱
-    return view('user.user');   //階層式  使用點連接
+    return view('user.user');   //階層式  使用點連接   user資料夾裡面的user檔案
 });
 
 Route::get('/eat/{name}/{num}', function (Request $request,$name,$num) {   //自行設定的路徑名稱
@@ -59,15 +59,9 @@ Route::get('/eat/{name}/{num}', function (Request $request,$name,$num) {   //自
     $data=['name'=> $name,
             'num'=> $num,
             'str'=>'hi'];
-    return view('eat',['data'=>$data]);   //將變數傳到前端，要加上面第5行
+    return view('eat',['data'=>$data]);   //將變數傳到前端，要加上面第8行
 });
 
-// Route::get('/car', function () {   //自行設定的路徑名稱
-//     return view('car');   //階層式  使用點連接
-// });
-Route::get('/student', function () {   //自行設定的路徑名稱
-    return view('student');   //階層式  使用點連接
-});
 
 
 Route::prefix('admin')->group(function(){  //群組概念
@@ -79,7 +73,6 @@ Route::prefix('admin')->group(function(){  //群組概念
     });
 });
 
-
-// Route::get('/test1',[Test1Controller::class],'testFun');
 Route::get('/car', [CarController::class, 'index']);
-Route::get('/student', [StudentController::class, 'index']);
+Route::get('/student/{name}', [StudentController::class, 'index']); //網址帶參數，到controller的StudentController更改
+Route::get('/student', [StudentController::class, 'hi']);

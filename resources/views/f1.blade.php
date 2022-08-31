@@ -10,7 +10,7 @@
    f1
    <a href="./test">test</a>
    <?php
-dd($data['str123']);
+dd($data['str456']);
 ?>
 </body>
 </html>

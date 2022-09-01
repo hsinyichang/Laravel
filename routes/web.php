@@ -2,6 +2,7 @@
 
 // use GuzzleHttp\Psr7\Request;
 
+use App\Http\Controllers\Student1Controller;   //新的controller  要啟用它
 use App\Http\Controllers\StudentController;   //新的controller  要啟用它
 use App\Http\Controllers\CarController;
 use Illuminate\Support\Facades\Route;
@@ -28,8 +29,14 @@ Route::get('/f1', function () {
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/example', function () {
+    return view('example');
+});
 Route::get('/hi', function () {
     return "<h1>hi</h1>";
+});
+Route::get('/student', function () {
+    return view('student');
 });
 Route::get('/hi/{name}', function ($name) {
     return "<h1>hi  ".$name."</h1>";
@@ -74,6 +81,7 @@ Route::prefix('admin')->group(function(){  //群組概念
 });
 
 Route::get('/car', [CarController::class, 'index']);
-Route::get('/student/{name}', [StudentController::class, 'index']); //網址帶參數，到controller的StudentController更改
-Route::get('/student', [StudentController::class, 'hi'])->name('student123');
+Route::get('/student1/{name}', [Student1Controller::class, 'index']); //網址帶參數，到controller的StudentController更改
+Route::get('/student1', [Student1Controller::class, 'hi'])->name('student123');
 Route::resource('bikes', BikeController::class);
+Route::resource('students', StudentController::class);

@@ -44,7 +44,7 @@ php artisan 會出現它所需的指令
 
 -------------------------------
 新增一個Controller
-→   php artisan make:controller StudentController       (Student  可換成你要的)
+→  終端機輸入 php artisan make:controller StudentController       (Student  可換成你要的)
 →   public function index(){                          (在下面輸入   index 可換成自己要的名子)
         return view('student');
     }
@@ -70,3 +70,52 @@ php artisan make:controller PhotoController --resource   建立一個新的controller
 
 (web.php裡輸入↓)
 Route::resource('photos', PhotoController::class);
+
+
+-------------css樣式連結----------
+<link rel="stylesheet" href="{{asset('css/css.css')}}">  <!--asset 路徑為public-->
+
+--------建立laravel 資料庫連結-----------
+
+
+  1-先到php myadmin新增一個資料庫
+  2-到.env檔
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=laravel_20220901    ←更改輸入
+   DB_USERNAME=root
+   DB_PASSWORD=
+
+  3-終端機輸入 php artisan migrate   連線資料庫  此時資料庫就有檔案了
+
+  ***php artisan migrate:rollback  →復原
+
+-------------若db壞掉--------
+  1-xampp/mysql 裡面的backup是備份(完好的)
+  2-新增一個data資料夾   原本的(壞掉的)要改名
+  3-將backup  裡的檔案複製到data
+
+
+------------新增一個migrations---------
+→網站參考  https://laravel.com/docs/8.x/migrations#generating-migrations
+→  php artisan make:migration create_flights_table    flights 可改成要的名稱
+	要記得使用複數
+
+新增完後   再輸入→  php artisan migrate
+
+若有更新  需先rollback(回上一步)   再推上去  (因系統會認定你已推過了)
+
+
+---------新增Models----------
+→  https://laravel.com/docs/8.x/eloquent#generating-model-classes
+   
+   php artisan make:model Flight
+
+
+
+
+------完整步驟----------
+1--參考上面建立laravel 資料庫連結
+2--
+

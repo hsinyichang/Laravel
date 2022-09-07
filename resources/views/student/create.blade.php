@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>新增資料</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -11,9 +11,8 @@
 </head>
 <body>
 
-<div class="container">
-  <h2>Striped Rows</h2>
-  <p>The .table-striped class adds zebra-stripes to a table:</p>            
+<div class="container mt-3">
+  <h2 style="text-align: center;font-weight:900">新增資料</h2>         
 
   <table class="table table-danger table-striped">
     <thead>
@@ -24,21 +23,21 @@
         <th>Math</th>
       </tr>
     </thead>
-    <form action="{{route('students.store')}}" method="post">
-    @csrf
-      <tbody>
-      <tr>
-        <td><input type="text" name="name" id="name"></td>
-        <td><input type="number" name="chinese" id="chinese"></td>
-        <td><input type="number" name="english" id="english"></td>
-        <td><input type="number" name="math" id="math"></td>
-      </tr>
-      <tr>
-        <td colspan="4">
-          <input type="submit" value="add submit">
-        </td>
-      </tr>
-    </tbody>
+    <form action="{{route('students.store')}}" method="post">  <!--確認新增到store function執行-->
+      @csrf
+        <tbody>
+        <tr>
+          <td><input type="text" name="name" id="name"></td>
+          <td><input type="number" name="chinese" id="chinese"></td>
+          <td><input type="number" name="english" id="english"></td>
+          <td><input type="number" name="math" id="math"></td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <button type="submit" class="btn btn-success">ADD</button>
+          </td>
+        </tr>
+      </tbody>
     </form>
   </table>
 </div>

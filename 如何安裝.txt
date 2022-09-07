@@ -126,7 +126,8 @@ update  需要用   @csrf   @method('PUT')
 store   需要用   @csrf
 delete  需要用   @csrf   @method('DELETE')
 
-自訂raw   (https://laravel.com/docs/8.x/queries#select-statements)
+------****自訂raw****--------------   
+(https://laravel.com/docs/8.x/queries#select-statements)
 $users = DB::table('users')
              ->select(DB::raw('count(*) as user_count, status'))
              ->where('status', '<>', 1)

@@ -9,6 +9,12 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
+<style>
+  table td,thead th{
+    border: 1px solid #eee;
+  }
+</style>
 <body>
 
 <div class="container mt-3">
@@ -39,7 +45,7 @@
               <form action="{{route('students.destroy',['student'=>$value->id])}}" method="post">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="del" class="mb-3 btn btn-danger">
+                <input style="display: inline" type="submit" value="del" class="btn btn-danger">
               </form>
               @php
                   

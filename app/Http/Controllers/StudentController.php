@@ -12,7 +12,7 @@ class StudentController extends Controller
     {
         //model student data 抓出來 ORM
         // $data=Student::all(); //抓到db資料，↓也可以排序方式顯現
-        //**get => fetchall 全部資料
+        //**get() => fetchall 全部資料
         $data=Student::orderBy('id','asc')->get();
         // dd($data);
         return view('student.index',['data'=>$data]);  //將資料帶入首頁頁面呈現
